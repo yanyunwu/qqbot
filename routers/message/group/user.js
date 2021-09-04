@@ -1,6 +1,5 @@
 const app = require('./create');
 
-const check = require('../../../utils/check');
 const now = require('../../../utils/date');
 
 // oicq内置模块
@@ -30,6 +29,11 @@ app.message('查看?', async (event, bot) => {
     console.log(111);
     try {
         let uid = event.matches[0];
+
+        if (typeof parseInt(uid) !== 'number') {
+            return;
+        }
+
         let info = await userInfo(event.group_id, uid);
         info = info[0];
         let res = `QQ:${info.uid}
