@@ -1,4 +1,5 @@
 const { query } = require('../utils/mysql');
+const { createAccount } = require('./post');
 
 
 // 获取个人信息
