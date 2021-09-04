@@ -1,7 +1,7 @@
 const app = require('./create');
 
 app.message('菜单', (event, bot) => {
-    let list = `           菜单5           
+    let list = `           菜单6           
 主人指令  管理指令
 用户指令  其他指令
 娱乐功能  实用功能`;
