@@ -5,6 +5,7 @@ module.exports = bot;
 const app = require('./routers/message/group');
 
 bot.use('message.group', app);
+bot.use('message.private', require('./routers/message/private'))
 
 
 bot.listen(() => {
