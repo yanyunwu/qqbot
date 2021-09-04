@@ -1,0 +1,18 @@
+{
+  "name": "qqbot",
+  "version": "1.0.0",
+  "description": "qq机器人",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "frame-bot": "^1.0.2",
+    "mysql": "^2.18.1",
+    "oicq": "^1.19.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "烟云",
+  "license": "ISC"
+}
