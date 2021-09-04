@@ -26,13 +26,14 @@ app.message('查看me', async (event, bot) => {
 });
 
 app.message('查看?', async (event, bot) => {
-    console.log(111);
-    try {
-        let uid = event.matches[0];
 
-        if (typeof parseInt(uid) !== 'number') {
-            return;
-        }
+    let uid = event.matches[0];
+
+    if (typeof parseInt(uid) !== 'number') {
+        return;
+    }
+    try {
+
 
         let info = await userInfo(event.group_id, uid);
         info = info[0];
