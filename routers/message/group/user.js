@@ -114,7 +114,3 @@ app.message('对?使用 ?', async (event, bot) => {
     console.log(good);
 })
 
-app.message('测试', (event, bot) => {
-    let message = cqcode.at(970555919);
-    bot.sendGroupMsg(event.group_id, message);
-});
