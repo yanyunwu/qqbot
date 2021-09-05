@@ -60,11 +60,13 @@ app.message('艾特? ?', async (event, bot) => {
             let message = cqcode.at(uid);
             bot.sendGroupMsg(event.group_id, message);
 
-            if (num-- <= 0) {
+            n--;
+
+            if (num <= 0) {
                 clearInterval(timer);
             }
 
-        }, 500);
+        }, 1000);
 
 
     } catch (err) {
