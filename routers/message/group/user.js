@@ -5,6 +5,8 @@ const now = require('../../../utils/date');
 // oicq内置模块
 const { cqcode } = require("oicq");
 
+const { random, israndom } = require('../../../utils/random');
+
 // 数据库操作模块
 const { userInfo } = require('../../../service/select');
 const { putPoint, putQd } = require('../../../service/put');
@@ -113,4 +115,40 @@ app.message('对?使用 ?', async (event, bot) => {
     console.log(person);
     console.log(good);
 })
+
+app.message('打劫?', async (event, bot) => {
+    try {
+        let sender = event.sender.user_id;
+        let uid = event.matches[0];
+
+        let senderinfo = (await userInfo(event.group_id, sender))[0];
+        let selfinfo = (await userInfo(event.group_id, uid))[0];
+
+        let use = random(1, 30);
+
+        if (israndom(70)) {
+            let remain = parseInt(senderinfo.point) + use;
+            await putPoint(senderinfo.id, String(remain));
+
+            remain = parseInt(selfinfo.point) - use;
+            await putPoint(selfinfo.id, String(remain));
+
+            event.reply(`打劫成功，获取${use}硬币`);
+        } else {
+            let remain = parseInt(selfinfo.point) + use;
+            await putPoint(selfinfo.id, String(remain));
+
+            remain = parseInt(senderinfo.point) - use;
+            await putPoint(senderinfo.id, String(remain));
+
+            await bot.setGroupBan(event.group_id, sender, use * 60);
+
+            event.reply(`打劫失败，并被抢走${use}硬币，并被禁言${use}分钟`);
+        }
+
+
+    } catch (err) {
+        event.reply("指令执行失败，请检查格式是否正确");
+    }
+});
 
