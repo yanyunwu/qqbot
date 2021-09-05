@@ -59,6 +59,15 @@ app.message('艾特? ?', async (event, bot) => {
         if (isNaN(num)) {
             return;
         }
+        let use = 2 * num;
+
+        let selfinfo = (await userInfo(event.group_id, event.sender.user_id))[0];
+        let remain = parseInt(selfinfo.point) - parseInt(use);
+        if (remain < 0) {
+            event.reply(`硬币不足，需要${2}x${num}硬币`);
+            return;
+        }
+        await putPoint(selfinfo.id, String(remain));
 
         let timer = setInterval(() => {
             let message = cqcode.at(uid);
@@ -76,7 +85,7 @@ app.message('艾特? ?', async (event, bot) => {
     } catch (err) {
         event.reply("指令执行失败，请检查格式是否正确");
     }
-}, { url: '艾特', role: 'user' });
+}, { url: '艾特', role: 'user' }, { use: false });
 
 
 
