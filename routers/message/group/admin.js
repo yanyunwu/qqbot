@@ -30,13 +30,16 @@ app.message('禁言? ?', async (event, bot) => {
     try {
         let person = event.matches[0];
         let time = event.matches[1];
-        bot.setGroupBan(event.group_id, person, parseInt(time) * 60).then(value => {
-            if (value.retcode === 0) {
-                event.reply(`禁言成员${person}成功`);
-            } else {
-                event.reply('禁言失败，请检查格式');
-            }
-        });
+        await bot.setGroupBan(event.group_id, person, parseInt(time) * 60);
+    } catch (err) {
+        event.reply("指令执行失败，请检查格式是否正确");
+    }
+}, { url: '禁言成员', role: 'admin' });
+
+app.message('解除禁言?', async (event, bot) => {
+    try {
+        let person = event.matches[0];
+        await bot.setGroupBan(event.group_id, person, 0);
     } catch (err) {
         event.reply("指令执行失败，请检查格式是否正确");
     }
