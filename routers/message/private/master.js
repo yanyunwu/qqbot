@@ -3,9 +3,8 @@ const { userInfo } = require('../../../service/select');
 const { putPoint, putPower } = require('../../../service/put');
 
 app.message('查看邀请加群', async (event, bot) => {
-
     let waithand = (await bot.getSystemMsg()).data;
-    console.log(waithand);
+    // console.log(waithand);
 
     let gidlist = []
 
@@ -34,7 +33,7 @@ app.message('同意加群?', async (event, bot) => {
     let id = event.matches[0];
 
     let waithand = (await bot.getSystemMsg()).data;
-    console.log(waithand);
+    // console.log(waithand);
 
     let gidlist = []
 
