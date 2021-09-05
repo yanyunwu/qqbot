@@ -70,7 +70,7 @@ app.message('艾特? ?', async (event, bot) => {
     } catch (err) {
         event.reply("指令执行失败，请检查格式是否正确");
     }
-});
+}, { url: '艾特', role: 'user' });
 
 
 
