@@ -10,12 +10,12 @@ module.exports = async function (event, navigation, openlist = { power: true, us
 
     console.log(event);
 
-    // // 检测主人
-    // for (let i of masters) {
-    //     if (String(event.sender.user_id) === i) {
-    //         return true;
-    //     }
-    // }
+    // 检测主人
+    for (let i of masters) {
+        if (String(event.sender.user_id) === i) {
+            return true;
+        }
+    }
 
     // 先检测是否配置检测
     if (!navigation.role) return true;
