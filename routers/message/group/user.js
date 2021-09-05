@@ -49,6 +49,29 @@ app.message('查看?', async (event, bot) => {
     }
 });
 
+app.message('艾特? ?', async (event, bot) => {
+
+    try {
+
+        let uid = event.matches[0];
+        let num = parseInt(event.matches[1]);
+
+        let timer = setInterval(() => {
+            let message = cqcode.at(uid);
+            bot.sendGroupMsg(event.group_id, message);
+
+            if (num-- <= 0) {
+                clearInterval(timer);
+            }
+
+        }, 500);
+
+
+    } catch (err) {
+        event.reply("指令执行失败，请检查格式是否正确");
+    }
+});
+
 
 
 app.message('签到', async (event, bot) => {
