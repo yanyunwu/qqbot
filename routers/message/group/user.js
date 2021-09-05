@@ -126,7 +126,7 @@ app.message('打劫?', async (event, bot) => {
 
         let use = random(1, 30);
 
-        if (israndom(60)) {
+        if (israndom(48)) {
             let remain = parseInt(senderinfo.point) + use;
             await putPoint(senderinfo.id, String(remain));
 
