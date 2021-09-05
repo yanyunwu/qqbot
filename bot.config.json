@@ -33,6 +33,11 @@
             "name": "踢除成员",
             "power": 2,
             "open": true
+        },
+        "禁言成员": {
+            "name": "禁言成员",
+            "power": 2,
+            "open": true
         }
     },
     "user": {

@@ -25,3 +25,19 @@ app.message('踢除?', async (event, bot) => {
         event.reply("指令执行失败，请检查格式是否正确");
     }
 }, { url: '踢除成员', role: 'admin' });
+
+app.message('禁言? ?', async (event, bot) => {
+    try {
+        let person = event.matches[0];
+        let time = event.matches[1];
+        bot.setGroupBan(event.group_id, person, parseInt(time) * 60).then(value => {
+            if (value.retcode === 0) {
+                event.reply(`禁言成员${person}成功`);
+            } else {
+                event.reply('禁言失败，请检查格式');
+            }
+        });
+    } catch (err) {
+        event.reply("指令执行失败，请检查格式是否正确");
+    }
+}, { url: '禁言成员', role: 'admin' });
