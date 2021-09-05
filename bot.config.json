@@ -2,12 +2,12 @@
     "master": {
         "加硬币": {
             "name": "添加硬币",
-            "power": 2,
+            "power": 5,
             "open": true
         },
         "减硬币": {
             "name": "减少硬币",
-            "power": 2,
+            "power": 5,
             "open": true
         },
         "设置权限": {
@@ -22,16 +22,16 @@
     },
     "admin": {
         "开启全体禁言": {
-            "power": 1,
+            "power": 3,
             "open": true
         },
         "关闭全体禁言": {
-            "power": 1,
+            "power": 3,
             "open": true
         },
         "踢除成员": {
             "name": "踢除成员",
-            "power": 2,
+            "power": 4,
             "open": true
         },
         "禁言成员": {
@@ -43,7 +43,6 @@
     "user": {
         "签到": {
             "name": "签到",
-            "power": 0,
             "open": true
         },
         "查看": {
@@ -56,31 +55,26 @@
     "api": {
         "舔狗日记": {
             "name": "舔狗日记",
-            "power": 0,
             "open": true,
             "use": "1"
         },
         "心灵鸡汤": {
             "name": "心灵鸡汤",
-            "power": 0,
             "open": true,
             "use": "1"
         },
         "ACG图片": {
             "name": "ACG图片",
-            "power": 0,
             "open": true,
             "use": "1"
         },
         "天气预报": {
             "name": "天气预报",
-            "power": 0,
             "open": true,
             "use": "2"
         },
         "听歌": {
             "name": "网易云",
-            "power": 0,
             "open": true,
             "use": "2"
         }
