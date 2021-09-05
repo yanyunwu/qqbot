@@ -56,6 +56,10 @@ app.message('艾特? ?', async (event, bot) => {
         let uid = event.matches[0];
         let num = parseInt(event.matches[1]);
 
+        if (isNaN(num)) {
+            return;
+        }
+
         let timer = setInterval(() => {
             let message = cqcode.at(uid);
             bot.sendGroupMsg(event.group_id, message);

@@ -42,10 +42,3 @@ app.message('设置权限? ?', async (event, bot) => {
     }
 }, { url: '设置权限', role: 'master' });
 
-// app.message('加群?', async (event, bot) => {
-
-//         let gid = event.matches[0];
-//         await putPower(person, power);
-//         event.reply("设置权限成功");
-
-// }, { url: '设置权限', role: 'master' });

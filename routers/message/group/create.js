@@ -7,13 +7,16 @@ const check = require('../../../utils/check');
 
 // 装饰器
 function decorator(fun) {
-    return function (router, callback, config) {
+    return function (router, callback, config, openlist) {
 
         let call = callback;
 
         callback = async function (event, bot) {
             if (config) {
-                if (!(await check(config.url, event, config.role))) {
+                if (!(await check(event, {
+                    url: config.url,
+                    role: config.role
+                }, openlist))) {
                     return;
                 }
             };
