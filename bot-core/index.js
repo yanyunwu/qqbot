@@ -16,7 +16,6 @@ class FrameBot extends Client {
 
     use(distributor) {
         let listeners = distributor.listeners;
-        console.log(distributor);
         for (let event in listeners) {
             this.on(event, listeners[event]);
         }
