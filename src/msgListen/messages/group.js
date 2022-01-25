@@ -17,6 +17,12 @@ app.msg('关闭全禁', (event) => {
     })
 })
 
+app.msg('踢除|1', (event, args) => {
+    bot.setGroupKick(event.group_id, args[0], false).then(value => {
+        event.reply('踢除成功！')
+    })
+})
+
 
 
 

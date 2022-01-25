@@ -4,6 +4,11 @@ const config = require('../../config');
 
 module.exports = function (userId, groupId, title) {
     return new Promise(resolve => {
+        if (config.whiteAuth.includes(title)) {
+            resolve(true);
+            return;
+        }
+
         if (config.admin && config.admin.includes(String(userId))) {
             resolve(true);
             return;

@@ -13,3 +13,15 @@ exports.checkUserAllAuth = function (qq, gid, title) {
         params: [qq, gid, title]
     })
 }
+
+// 删除用户角色
+exports.delUserRole = function (qq, title) {
+    qq = String(qq)
+    return runSql({
+        sql: `DELETE FROM user_role WHERE uid=
+        (SELECT uid FROM user WHERE qq_account=?) AND
+        rid=(SELECT rid FROM role WHERE title=?)`,
+        params: [qq, title]
+    });
+
+}

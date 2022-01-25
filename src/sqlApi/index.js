@@ -38,10 +38,19 @@ exports.setRole = function (title) {
 
 // 设置用户角色
 exports.setUserRole = function (uid, title) {
-    return runSql({
-        sql: 'INSERT INTO user_role(uid,title) VALUES(?,?)',
-        params: [uid, title]
-    });
+    return getSql({
+        sql: 'SELECT rid FROM role WHERE title=?',
+        params: [title]
+    }).then(value => {
+        if (value.length) {
+            return runSql({
+                sql: 'INSERT INTO user_role(uid,rid) VALUES(?,?)',
+                params: [uid, value[0].rid]
+            });
+        }
+
+        return Promise.reject(null)
+    })
 }
 
 

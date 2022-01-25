@@ -41,8 +41,7 @@ exports.delRoleAuthByTitle = function (title, authTitle) {
     return runSql({
         sql: `DELETE FROM role_auth WHERE rid=
             (SELECT rid FROM role WHERE title=?) AND aid=
-            (SELECT aid FROM authority WHERE title=?)
-            )`,
+            (SELECT aid FROM authority WHERE title=?)`,
         params: [title, authTitle]
     });
 }
