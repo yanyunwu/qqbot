@@ -28,15 +28,6 @@ exports.setOrder = function (title, ident) {
     });
 }
 
-// 获取用户信息
-// 添加指令
-// exports.getUser = function (title, ident) {
-//     return runSql({
-//         sql: 'INSERT INTO authority(title,identifier) VALUES(?,?)',
-//         params: [title, ident]
-//     });
-// }
-
 // 添加角色
 exports.setRole = function (title) {
     return runSql({

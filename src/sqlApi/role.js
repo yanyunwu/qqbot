@@ -49,9 +49,19 @@ exports.delRoleAuthByTitle = function (title, authTitle) {
 
 
 // 查询所有角色及权限
-exports.getAllRoleAuth = function () {
+exports.getAllRole = function () {
     return getSql({
         sql: `SELECT title FROM role`,
         params: []
+    });
+}
+
+// 查询某角色及权限
+exports.getRoleAuth = function (title) {
+    return getSql({
+        sql: `SELECT au.* FROM role_auth AS ra  
+        LEFT JOIN authority AS au ON au.aid=ra.aid WHERE rid=
+        (SELECT rid FROM role WHERE title=?)`,
+        params: [title]
     });
 }

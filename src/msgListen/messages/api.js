@@ -3,17 +3,19 @@ const app = new Listener();
 
 const { chat } = require('../../api/chat')
 const random = require('../../utils/random')
-const config = require('../../../config')
+const { getConfig } = require('../../sqlApi/config')
 
 app.msg('*', (event, args) => {
     const rowMsg = event.raw_message;
-    let p = config.chatProbability
-    if (random(p)) {
-        chat(rowMsg).then(value => {
-            let content = value.content;
-            event.reply(content);
-        })
-    }
+    getConfig('chatProbability').then(value => {
+        let p = value[0].value;
+        if (random(p)) {
+            chat(rowMsg).then(value => {
+                let content = value.content;
+                event.reply(content);
+            })
+        }
+    })
 })
 
 
