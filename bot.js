@@ -2,6 +2,7 @@
 const { createBot } = require('./bot-core');
 // 填写登录QQ
 const bot = createBot(2770315275);
+global.bot = bot;
 
 // 导入各个模块
 const messageGroup = require('./src/modules/message/grounp')

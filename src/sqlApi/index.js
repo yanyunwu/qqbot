@@ -2,6 +2,8 @@ const { runSql, getSql } = require('../utils/sqlite3');
 
 // 查询用户
 exports.getUser = function (qq, gid) {
+    qq = String(qq);
+    gid = String(gid);
     return getSql({
         sql: 'SELECT * FROM user WHERE qq_account=? AND qq_group=?',
         params: [qq, gid]
@@ -10,6 +12,8 @@ exports.getUser = function (qq, gid) {
 
 // 存储用户
 exports.setUser = function (qq, gid) {
+    qq = String(qq);
+    gid = String(gid);
     return runSql({
         sql: 'INSERT INTO user(qq_account,qq_group) VALUES(?,?)',
         params: [qq, gid]

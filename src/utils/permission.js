@@ -1,9 +1,5 @@
-const { setUser, getUser } = require('../sqlApi/index')
+const { checkUserAllAuth } = require('../sqlApi/user')
 
-module.exports = function (userId, groupId) {
-    getUser(userId, groupId).then(value => {
-        if (!value.length) {
-            setUser(userId, groupId).then(value => value).catch(err => console.log(err))
-        }
-    })
+module.exports = function (userId, groupId, title) {
+    return checkUserAllAuth(userId, groupId, title).then(value => value && !!value.length)
 }

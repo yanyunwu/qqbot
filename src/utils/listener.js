@@ -1,3 +1,4 @@
+const { setAuth } = require('../sqlApi/authority')
 /**
  * 本模块是对消息监听的封装
 */
@@ -11,6 +12,9 @@ class Listener {
         const allArgs = msg.split('|');
         if (allArgs && allArgs.length) {
             let command = allArgs.shift();
+
+            this.addTODb(command)
+
             let count = parseInt(allArgs[0]);
             count = isNaN(count) ? 0 : count;
             command = `${command}|${count}`
@@ -20,6 +24,10 @@ class Listener {
                 argCount: isNaN(count) ? count : 0
             };
         }
+    }
+
+    addTODb(title) {
+        setAuth(title);
     }
 
 }

@@ -13,9 +13,7 @@ const getDatabase = () => {
 function runSql(options = {}) {
     let opts = options.params || [];
     return new Promise(resolve => {
-        const run = db => {
-            db.run(options.sql, opts, function () { resolve(this); });
-        }
+        const run = db => db.run(options.sql, opts, () => resolve(this))
         getDatabase().then(run).catch(err => console.log(err));
     })
 }
@@ -24,7 +22,7 @@ function runSql(options = {}) {
 function getSql(options = {}) {
     let opts = options.params || [];
     return new Promise(resolve => {
-        const all = db => db.all(options.sql, opts, function (err, rows) { resolve(rows); })
+        const all = db => db.all(options.sql, opts, (err, rows) => resolve(rows))
         getDatabase().then(all).catch(err => console.log(err))
     })
 }

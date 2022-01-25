@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.25.0",
     "oicq": "^2.1.9",
     "sqlite3": "^5.0.2"
   },
