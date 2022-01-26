@@ -1,5 +1,5 @@
 function botEval(bot, order) {
-    eval(order);
+    return eval(order);
 }
 
 module.exports = botEval;

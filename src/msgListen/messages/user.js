@@ -4,6 +4,7 @@ const bot = global.bot
 
 const { getAllAuth } = require('../../sqlApi/authority')
 const { getAllRole, getRoleAuth } = require('../../sqlApi/role')
+const botEval = require('../../utils/eval')
 
 
 app.msg('查看所有指令', (event, args) => {
@@ -31,6 +32,13 @@ app.msg('查看角色|1', (event, args) => {
         });
         event.reply(`${args[0]}共有${authList.length}项权限\n${authList.join('\n')}`)
     })
+})
+
+
+app.msg('#|1', (event, args) => {
+
+    let bk = String(botEval(bot, args[0]))
+    event.reply(bk)
 })
 
 

@@ -1,9 +1,10 @@
 const { Database } = require('sqlite3').verbose();
+const path = require('path')
 
 // 获取数据库连接
 const getDatabase = () => {
     return new Promise(resolve => {
-        const db = new Database('./src/database/qqbot.db', function () {
+        const db = new Database(path.resolve(__dirname, '../database/qqbot.db'), function () {
             resolve(db);
         });
     });

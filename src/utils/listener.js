@@ -12,8 +12,9 @@ class Listener {
         const allArgs = msg.split('|');
         if (allArgs && allArgs.length) {
             let command = allArgs.shift();
-
-            this.addTODb(command)
+            if (command !== '*') {
+                this.addTODb(command)
+            }
 
             let count = parseInt(allArgs[0]);
             count = isNaN(count) ? 0 : count;
