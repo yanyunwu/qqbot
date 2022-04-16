@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.21.1",
-    "frame-bot": "^1.0.2",
+    "frame-bot": "^1.0.3",
     "mysql": "^2.18.1",
     "oicq": "^1.19.5"
   },
