@@ -1,0 +1,15 @@
+{
+  "name": "qqbotv3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^17.0.23",
+    "commander": "^9.1.0",
+    "koa-oicq-message": "^1.0.0",
+    "oicq": "^2.2.1",
+    "sqlite3": "^5.0.2"
+  },
+  "type": "commonjs"
+}
